@@ -13,11 +13,13 @@ http://jaseywang.me/2015/05/26/setup-a-aqiair-quality-index-monitoring-system-wi
 https://gist.github.com/jaseywang/6e2c9af226070c746394
 
 
+Python 학습
+===========
 
-
-* byte를 string으로 변환
-        http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
-
+byte를 string으로 변환
+-----------------------
+* http://stackoverflow.com/questions/606191/convert-bytes-to-a-python-string
+```
 >>> b"abcde"
 b'abcde'
 
@@ -25,4 +27,61 @@ b'abcde'
 # need to use the encoding your data is actually in.
 >>> b"abcde".decode("utf-8")
 'abcde'
+```
 
+print() 자동 줄바꿈 제거
+------------------------
+* http://stackoverflow.com/questions/493386/how-to-print-in-python-without-newline-or-space
+```
+General way
+
+import sys
+sys.stdout.write('.')
+You may also need to call
+
+sys.stdout.flush()
+to ensure stdout is flushed immediately.
+
+Python 2.6+
+
+From Python 2.6 you can import the print function from Python 3:
+
+from __future__ import print_function
+This allows you to use the Python 3 solution below.
+
+Python 3
+
+In Python 3, the print statement has been changed into a function. In Python 3, you can instead do:
+
+print('.', end="")
+This also works in Python 2, provided that you've used from __future__ import print_function.
+
+If you are having trouble with buffering, you can flush the output by adding flush=True keyword argument:
+
+print('.', end="", flush=True)
+```
+
+
+줄바꿈 제거
+-----------
+* http://stackoverflow.com/questions/275018/how-can-i-remove-chomp-a-newline-in-python
+```
+Try the rstrip method.
+
+>>> 'test string\n'.rstrip()
+'test string'
+Note that Python's rstrip method strips all kinds of trailing whitespace by default, not just one newline as Perl does with chomp. To strip only newlines:
+
+>>> 'test string \n\n'.rstrip('\n')
+'test string '
+There is also the lstrip and strip methods.
+
+>>> s = " \n  abc   def   "
+>>> s.strip()
+'abc   def'
+>>> s.rstrip()
+' \n  abc   def'
+>>> s.lstrip()
+'abc   def   '
+>>>
+```
