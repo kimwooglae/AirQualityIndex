@@ -84,3 +84,9 @@ Reference
 * http://jaseywang.me/2015/05/26/setup-a-aqiair-quality-index-monitoring-system-with-dylos-and-raspberry-pi-2/
 * https://gist.github.com/jaseywang/6e2c9af226070c746394
 * http://aqicn.org/faq/2013-09-08/dylos-air-particule-counter-experimentation-part-1/kr/
+* http://aqicn.org/sensor/beijing/sanlitun/
+* http://www.dylosproducts.com/downloads.html
+* KW-525 linux driver : http://prolificusa.com/pl-2303hx-drivers/ 
+* http://villagescience.org/running-raspberry-pi-usb-serial-ttl-adapter/
+* https://www.raspberrypi.org/forums/viewtopic.php?p=575687
+* https://www.raspberrypi.org/forums/viewtopic.php?p=90223
