@@ -2,7 +2,7 @@ import serial
 import time
 import sys
 
-port = serial.Serial("COM5", 9600)
+port = serial.Serial("/dev/ttyUSB0", 9600)
 
 print("Monitoring Dylos")
 while True:
