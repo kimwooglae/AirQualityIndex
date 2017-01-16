@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "author": "Kim, WoogLae",
   "dependencies": {
-    "serialport": "~4.0.7"
+    "serialport": "~3.1.2"
   },
   "devDependencies": {
-    "serialport": "~4.0.7"
+    "serialport": "~3.1.2"
   }
 }
