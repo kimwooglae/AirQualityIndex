@@ -17,21 +17,21 @@
 </head>
 
 <body>
-    <div style="width:75%;">
+    <div style="width:98%;height:98%">
         <canvas id="canvas"></canvas>
     </div>
     <script>
     var lineChartData = {
         labels: [],
         datasets: [{
-            label: "My First dataset",
+            label: "PM2.5",
             borderColor: window.chartColors.red,
             backgroundColor: window.chartColors.red,
             fill: false,
             data: [],
             yAxisID: "y-axis-1",
         }, {
-            label: "My Second dataset",
+            label: "PM10",
             borderColor: window.chartColors.blue,
             backgroundColor: window.chartColors.blue,
             fill: false,
@@ -57,7 +57,7 @@
             for(var i=1;i<lines.length;i++){
               if(lines[i]) {
                 var currentline=lines[i].split(",");
-                lineChartData.labels.push(currentline[0]);
+                lineChartData.labels.push(currentline[0].substring(5, 13));
                 lineChartData.datasets[0].data.push(currentline[1]);
                 lineChartData.datasets[1].data.push(currentline[2]);
               }
@@ -88,7 +88,7 @@
                 stacked: false,
                 title:{
                     display: true,
-                    text:'Chart.js Line Chart - Multi Axis'
+                    text:'Particle counter'
                 },
                 scales: {
                     yAxes: [{
