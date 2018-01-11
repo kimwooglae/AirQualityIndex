@@ -42,11 +42,11 @@
 
 
     var getData = function (dateStr) {
-      if(!dataStr) {
+      if(!dateStr) {
         var d = new Date();
         var month = d.getMonth()+1;
         var day = d.getDate();
-        dataStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
+        dateStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
       }
       var xhr = new XMLHttpRequest();
       xhr.open('GET', '/AirQualityIndex/python/data_' + dateStr + '.csv', true);
@@ -77,8 +77,8 @@
             d.setDate(d.getDate() - 1);
             var month = d.getMonth()+1;
             var day = d.getDate();
-            dataStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
-            getData(dataStr);
+            dateStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
+            getData(dateStr);
           }
 
         }
