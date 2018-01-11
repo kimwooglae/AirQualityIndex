@@ -55,20 +55,29 @@
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
           if (xhr.status == 200) {
-//            lineChartData.labels = [];
-//            lineChartData.datasets[0].data = [];
-//            lineChartData.datasets[1].data = [];
+            var labels = [];
+            var data1 = [];
+            var data2 = [];
 
             var data = xhr.responseText;
             var lines = data.split("\n");
             for(var i=1;i<lines.length;i++){
               if(lines[i]) {
                 var currentline=lines[i].split(",");
-                lineChartData.labels.push(currentline[0].substring(5, 13));
-                lineChartData.datasets[0].data.push(currentline[1]);
-                lineChartData.datasets[1].data.push(currentline[2]);
+                labels.push(currentline[0].substring(5, 13));
+                data1.push(currentline[1]);
+                data2.push(currentline[2]);
+
+//                lineChartData.labels.push(currentline[0].substring(5, 13));
+//                lineChartData.datasets[0].data.push(currentline[1]);
+//                lineChartData.datasets[1].data.push(currentline[2]);
               }
             }
+
+            lineChartData.labels.splice.apply(lineChartData.labels, [0, 0].concat(labels));
+            lineChartData.datasets[0].data.splice.apply(lineChartData.datasets[0].data, [0, 0].concat(data1));
+            lineChartData.datasets[1].data.splice.apply(lineChartData.datasets[1].data, [0, 0].concat(data2));
+
             window.myLine.update();
 
           }
