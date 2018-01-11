@@ -16,8 +16,8 @@
     </style>
 </head>
 
-<body style="padding: 20px;">
-    <div style='width: 80%; margin: 20px auto;'>
+<body style="">
+    <div style='width: 95%;'>
         <canvas id="canvas"></canvas>
     </div>
     <script>
@@ -54,9 +54,9 @@
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
           if (xhr.status == 200) {
-            lineChartData.labels = [];
-            lineChartData.datasets[0].data = [];
-            lineChartData.datasets[1].data = [];
+//            lineChartData.labels = [];
+//            lineChartData.datasets[0].data = [];
+//            lineChartData.datasets[1].data = [];
 
             var data = xhr.responseText;
             var lines = data.split("\n");
@@ -72,7 +72,7 @@
 
           }
 
-          if(lineChartData.labels.length < 10) {
+          if(lineChartData.labels.length < 24) {
             var d = new Date(dateStr.substring(0,4) + '-' + dateStr.substring(4,6) + '-' + dateStr.substring(6,8));
             d.setDate(d.getDate() - 1);
             var month = d.getMonth()+1;
@@ -95,6 +95,8 @@
         var output = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
         getData(output);
         var ctx = document.getElementById("canvas").getContext("2d");
+        ctx.height = document.body.clientHeight - 20;
+
         window.myLine = Chart.Line(ctx, {
             data: lineChartData,
             options: {
