@@ -4,8 +4,8 @@
 <head>
     <title>Line Chart Multiple Axes</title>
     <script src="js/Chart.bundle.js"></script>
+    <script src="js/utils.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/Chart.bundle.js"></script>
     <style>
     canvas {
         -moz-user-select: none;
@@ -21,11 +21,6 @@
     </div>
     <button id="randomizeData">Randomize Data</button>
     <script>
-
-//    https://raw.githubusercontent.com/kimwooglae/AirQualityIndex/master/python/data_20171014.csv
-
-  //  /data_20180111.csv
-
     var lineChartData = {
         labels: ["January", "February", "March", "April", "May", "June", "July"],
         datasets: [{
