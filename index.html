@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Line Chart Multiple Axes</title>
+    <title>Particle Counter</title>
     <meta name="viewport" content="width=device-width, minimal-scale=1.0, maximum-scale=1.0,">
     <script src="js/Chart.bundle.js"></script>
     <script src="js/utils.js"></script>
@@ -31,6 +31,7 @@
             fill: false,
             data: [],
             yAxisID: "y-axis-1",
+            pointHitRadius: 2
         }, {
             label: "PM10",
             borderColor: window.chartColors.blue,
@@ -38,6 +39,7 @@
             fill: false,
             data: [],
             yAxisID: "y-axis-2"
+            pointHitRadius: 2
         }]
     };
 
