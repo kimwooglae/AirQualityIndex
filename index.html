@@ -42,6 +42,12 @@
 
 
     var getData = function (dateStr) {
+      if(!dataStr) {
+        var d = new Date();
+        var month = d.getMonth()+1;
+        var day = d.getDate();
+        dataStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
+      }
       var xhr = new XMLHttpRequest();
       xhr.open('GET', '/AirQualityIndex/python/data_' + dateStr + '.csv', true);
       xhr.setRequestHeader("Content-Type", "text/xml");
@@ -66,6 +72,15 @@
 
           }
 
+          if(lineChartData.labels.length < 10) {
+            var d = new Date(dateStr.substring(0,4) + '-' + dateStr.substring(4,6) + '-' + dateStr.substring(6,8));
+            d.setDate(d.getDate() - 1);
+            var month = d.getMonth()+1;
+            var day = d.getDate();
+            dataStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
+            getData(dataStr);
+          }
+
         }
       }
       xhr.send(null);
@@ -86,6 +101,7 @@
                 responsive: true,
                 hoverMode: 'index',
                 stacked: false,
+                maintainAspectRatio: false,
                 title:{
                     display: true,
                     text:'Particle counter'
