@@ -3,10 +3,18 @@
 
 <head>
     <title>Particle Counter</title>
-    <meta name="viewport" content="width=device-width, minimal-scale=1.0, maximum-scale=1.0,">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, maximum-scale=1.0, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <script src="js/Chart.bundle.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+    window.addEventListener("load",function() {
+       setTimeout(function(){
+        window.scrollTo(0, 0);
+        }, 0);
+     });
+    </script>
     <style>
     html, body { margin:0; padding:0; height:100%; overflow:hidden }
     canvas {
@@ -126,11 +134,19 @@
                         display: true,
                         position: "left",
                         id: "y-axis-1",
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'PM2.5'
+                        }
                     }, {
                         type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
                         display: true,
                         position: "right",
                         id: "y-axis-2",
+                        scaleLabel: {
+                          display: true,
+                          labelString: 'PM10'
+                        },
 
                         // grid line settings
                         gridLines: {
