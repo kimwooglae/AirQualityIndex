@@ -60,7 +60,7 @@
         dateStr = d.getFullYear() + (month<10 ? '0' : '') + month + (day<10 ? '0' : '') + day;
       }
       var xhr = new XMLHttpRequest();
-      xhr.open('POST', '/AirQualityIndex/python/data_' + dateStr + '.csv', true);
+      xhr.open('GET', '/AirQualityIndex/python/data_' + dateStr + '.csv?timestamp=' + (Math.random()), true);
       xhr.setRequestHeader("Content-Type", "text/xml");
       xhr.onreadystatechange = function () {
         if (xhr.readyState == 4) {
