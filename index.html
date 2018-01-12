@@ -38,16 +38,16 @@
             backgroundColor: window.chartColors.red,
             fill: false,
             data: [],
-            yAxisID: "y-axis-1",
-            pointRadius: 1
+            yAxisID: "y-axis",
+            pointRadius: 2
         }, {
             label: "PM10",
             borderColor: window.chartColors.blue,
             backgroundColor: window.chartColors.blue,
             fill: false,
             data: [],
-            yAxisID: "y-axis-2",
-            pointRadius: 1
+            yAxisID: "y-axis",
+            pointRadius: 2
         }]
     };
 
@@ -141,25 +141,7 @@
                         type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
                         display: true,
                         position: "left",
-                        id: "y-axis-1",
-                        scaleLabel: {
-                          display: true,
-                          labelString: 'PM2.5'
-                        }
-                    }, {
-                        type: "linear", // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
-                        display: true,
-                        position: "right",
-                        id: "y-axis-2",
-                        scaleLabel: {
-                          display: true,
-                          labelString: 'PM10'
-                        },
-
-                        // grid line settings
-                        gridLines: {
-                            drawOnChartArea: false, // only want the grid lines for one axis to show up
-                        },
+                        id: "y-axis"
                     }],
                 }
             }
