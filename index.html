@@ -75,8 +75,16 @@
               if(lines[i]) {
                 var currentline=lines[i].split(",");
                 labels.push(currentline[0].substring(5, 13));
-                data1.push(currentline[1]);
-                data2.push(currentline[2]);
+                data1.push((parseInt(currentline[1],10)*130/30000) + ""); // http://aqicn.org/faq/2013-09-08/dylos-air-particule-counter-experimentation-part-1/
+                data2.push((parseInt(currentline[2],10)*140/800) + "");
+
+// https://www.ncbi.nlm.nih.gov/pubmed/26487426
+// http://billpentz.com/woodworking/cyclone/dylos.cfm
+// http://aqicn.org/experiments/what-is-the-dylos-monitor-actually-measuring/kr/
+// https://smartairfilters.com/en/blog/how-accurate-are-common-particle-counters-comparison-test/
+
+
+//                data2.push(currentline[2]);
 
 //                lineChartData.labels.push(currentline[0].substring(5, 13));
 //                lineChartData.datasets[0].data.push(currentline[1]);
