@@ -71,12 +71,18 @@
 
             var data = xhr.responseText;
             var lines = data.split("\n");
-            for(var i=1;i<lines.length;i++){
+//            for(var i=1;i<lines.length;i++){
+            for(var i=lines.length-1;i>=1;i11){
               if(lines[i]) {
                 var currentline=lines[i].split(",");
-                labels.push(currentline[0].substring(5, 13));
-                data1.push((parseInt(currentline[1],10)*130/30000) + ""); // http://aqicn.org/faq/2013-09-08/dylos-air-particule-counter-experimentation-part-1/
-                data2.push((parseInt(currentline[2],10)*140/800) + "");
+
+                lineChartData.labels.unshift(currentline[0].substring(5, 13));
+                lineChartData.datasets[0].data.unshift(parseInt(currentline[1],10)*130/30000) + "");
+                lineChartData.datasets[1].data.unshift((parseInt(currentline[2],10)*140/800) + "");
+
+//                labels.push(currentline[0].substring(5, 13));
+//                data1.push((parseInt(currentline[1],10)*130/30000) + ""); // http://aqicn.org/faq/2013-09-08/dylos-air-particule-counter-experimentation-part-1/
+//                data2.push((parseInt(currentline[2],10)*140/800) + "");
 
 // https://www.ncbi.nlm.nih.gov/pubmed/26487426
 // http://billpentz.com/woodworking/cyclone/dylos.cfm
@@ -92,9 +98,9 @@
               }
             }
 
-            lineChartData.labels.splice.apply(lineChartData.labels, [0, 0].concat(labels));
-            lineChartData.datasets[0].data.splice.apply(lineChartData.datasets[0].data, [0, 0].concat(data1));
-            lineChartData.datasets[1].data.splice.apply(lineChartData.datasets[1].data, [0, 0].concat(data2));
+//            lineChartData.labels.splice.apply(lineChartData.labels, [0, 0].concat(labels));
+//            lineChartData.datasets[0].data.splice.apply(lineChartData.datasets[0].data, [0, 0].concat(data1));
+//            lineChartData.datasets[1].data.splice.apply(lineChartData.datasets[1].data, [0, 0].concat(data2));
 
             window.myLine.update();
 
