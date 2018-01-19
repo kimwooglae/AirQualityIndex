@@ -39,7 +39,7 @@
             fill: false,
             data: [],
             yAxisID: "y-axis",
-            pointRadius: 2
+            pointRadius: 1
         }, {
             label: "PM10",
             borderColor: window.chartColors.blue,
@@ -47,7 +47,7 @@
             fill: false,
             data: [],
             yAxisID: "y-axis",
-            pointRadius: 2
+            pointRadius: 1
         }]
     };
 
@@ -77,8 +77,12 @@
                 var currentline=lines[i].split(",");
 
                 lineChartData.labels.unshift(currentline[0].substring(5, 13));
-                lineChartData.datasets[0].data.unshift((parseInt(currentline[1],10)*130/30000) + "");
-                lineChartData.datasets[1].data.unshift((parseInt(currentline[2],10)*140/800) + "");
+                var pm2 = parseInt(currentline[1],10)*130/30000);
+                var pm10 = parseInt(currentline[2],10)*140/800;
+                if( !isNaN(pm2) && !isNaN(pm10) ) {
+                  lineChartData.datasets[0].data.unshift(pm2+ "");
+                  lineChartData.datasets[1].data.unshift(pm10 + "");
+                }
 
 //                labels.push(currentline[0].substring(5, 13));
 //                data1.push((parseInt(currentline[1],10)*130/30000) + ""); // http://aqicn.org/faq/2013-09-08/dylos-air-particule-counter-experimentation-part-1/
@@ -106,7 +110,7 @@
 
           }
 
-          if(lineChartData.labels.length < 48) {
+          if(lineChartData.labels.length < 72) {
             var d = new Date(dateStr.substring(0,4) + '-' + dateStr.substring(4,6) + '-' + dateStr.substring(6,8));
             d.setDate(d.getDate() - 1);
             var month = d.getMonth()+1;
